@@ -1,0 +1,15 @@
+# kubernetes backend service 
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: rest-backend
+  namespace: rest-ns
+spec:
+  selector:
+    app: rest-backend
+  ports:
+    - protocol: TCP
+      port: 6001
+      targetPort: 6001
+  type: LoadBalancer

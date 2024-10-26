@@ -1,0 +1,29 @@
+# kubernetes backend deployment
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: rest-backend
+  namespace: rest-ns
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: rest-backend
+  template:
+    metadata:
+      labels:
+        app: rest-backend
+    spec:
+      containers:
+        - name: rest-backend
+          image: ghenac/rest-2-backend:latest
+          ports:
+            - containerPort: 6001
+          resources:
+            requests:
+              memory: "256Mi"
+              cpu: "500m"
+            limits:
+              memory: "512Mi"
+              cpu: "1"
