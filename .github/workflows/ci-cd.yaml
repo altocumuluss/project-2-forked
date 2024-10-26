@@ -33,6 +33,8 @@ jobs:
       # Install dependencies and build backend
       - name: Install and Build Backend
         working-directory: ./backend
+        env:
+          JWT_SECRET: ${{ secrets.JWT_SECRET }}
         run: |
           npm install
           npm run build

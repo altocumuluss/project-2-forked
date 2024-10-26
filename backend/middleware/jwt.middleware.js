@@ -1,5 +1,10 @@
 const { expressjwt: jwt } = require("express-jwt");
 
+module.exports = expressJwt({
+  secret: process.env.JWT_SECRET, // or some other way to access the secret
+  algorithms: ['HS256'] // Adjust algorithm as per your JWT setup
+});
+
 // Instantiate the JWT token validation middleware
 const isAuthenticated = jwt({
   secret: process.env.SECRET,
