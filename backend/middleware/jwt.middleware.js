@@ -1,8 +1,8 @@
-const { expressjwt } = require('express-jwt');
+const { expressjwt: jwt } = require('express-jwt');
 
-module.exports = expressjwt({
-  secret: process.env.JWT_SECRET, // Ensure JWT_SECRET is defined in your environment
-  algorithms: ['HS256'], // Adjust to the algorithm you're using
+module.exports = jwt({
+  secret: process.env.JWT_SECRET, // Make sure JWT_SECRET is set in your environment
+  algorithms: ['HS256'], // Adjust based on your algorithm
 });
 
 
