@@ -93,12 +93,12 @@ jobs:
       # Build Docker image for frontend
       - name: Build Frontend Docker Image
         run: |
-          docker build -t ghenac/rest-2-client:latest:${{ github.sha }} -f client/Dockerfile .
+          docker build -t ghenac/rest-2-client:${{ github.sha }} -f client/Dockerfile .
 
       # Build Docker image for backend
       - name: Build Backend Docker Image
         run: |
-          docker build -t ghenac/rest-2-backend:latest:${{ github.sha }} -f backend/Dockerfile .
+          docker build -t ghenac/rest-2-backend:${{ github.sha }} -f backend/Dockerfile .
 
 ####### Push Stage #######
 
@@ -120,12 +120,12 @@ jobs:
       # Push Frontend Docker Image to DockerHub
       - name: Push Frontend Docker Image
         run: |
-          docker push ghenac/rest-2-client:latest:${{ github.sha }}
+          docker push ghenac/rest-2-client:${{ github.sha }}
 
       # Push Backend Docker Image to DockerHub
       - name: Push Backend Docker Image
         run: |
-          docker push ghenac/rest-2-backend:latest:${{ github.sha }}
+          docker push ghenac/rest-2-backend:${{ github.sha }}
 
 ####### Deploy Stage (on EKS) #######
 
